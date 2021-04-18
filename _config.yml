@@ -1,7 +1,6 @@
 site_name: SiteWebProjetAlbumPhotoSTM32F7
 nav: 
   - Menu principal: index.md
-  - Read me: README.md
 theme: jekyll-theme-slate
 site_url: https://Marsuboubou.github.io
 site_dir: public
