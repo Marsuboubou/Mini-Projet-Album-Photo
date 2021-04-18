@@ -1,6 +1,0 @@
-site_name: SiteWebProjetAlbumPhotoSTM32F7
-nav: 
-  - Home: index.md
-theme: readthedocs
-site_url: https://Marsuboubou.github.io
-site_dir: public
