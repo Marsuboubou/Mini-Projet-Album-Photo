@@ -1452,17 +1452,14 @@ void StartDefaultTask(void const *argument) {
 void Interface_HM(void const *argument) {
 	/* USER CODE BEGIN Interface_HM */
 	TS_StateTypeDef TS_State;
-	TS_StateTypeDef old_TS_State;
-	old_TS_State.touchDetected = 0;
 	uint16_t MessageTS;
 
 	/* Infinite loop */
 	for (;;) {
-		osDelay(200); //Période de 200ms
+		osDelay(300); //Période de 200ms
 		BSP_TS_GetState(&TS_State);
 		if (TS_State.touchDetected) {
 			HAL_GPIO_TogglePin(LED12_GPIO_Port, LED12_Pin);
-			old_TS_State.touchDetected = TS_State.touchDetected;
 			MessageTS = TS_State.touchX[0];
 			xQueueSend(QueueTS2PICHandle, &MessageTS, 0);
 		}
@@ -1509,8 +1506,8 @@ void Affichage_Pic(void const *argument) {
 			for (counter = 0; counter < MAX_BMP_FILES; counter++) {
 				free(pDirectoryFiles[counter]);
 			}
-			BSP_LCD_DisplayStringAtLine(8,
-					(uint8_t*) "  Pas de fichiers Bitmap ou pas de carte SD inseree...      ");
+			BSP_LCD_DisplayStringAtLine(4,
+					(uint8_t*) "  Pas de fichiers Bitmap ou pas de carte SD inseree... Redemarrer      ");
 			while (1) {
 			}
 		}
@@ -1576,7 +1573,7 @@ void Affichage_Pic(void const *argument) {
 				}
 
 				/* Clear the Foreground Layer */
-				BSP_LCD_Clear(LCD_COLOR_BLACK);
+				BSP_LCD_Clear(LCD_COLOR_WHITE);
 
 				/* Jump to the next image */
 				counter++;
@@ -1633,7 +1630,7 @@ void Affichage_Pic(void const *argument) {
 					}
 
 					/* Clear the Background Layer */
-					BSP_LCD_Clear(LCD_COLOR_BLACK);
+					BSP_LCD_Clear(LCD_COLOR_WHITE);
 
 					/* Next image */
 					counter++;
@@ -1663,21 +1660,21 @@ void Affichage_Pic(void const *argument) {
 /* USER CODE END Header_Demarrage */
 void Demarrage(void const *argument) {
 	/* USER CODE BEGIN Demarrage */
-//	uint8_t MessageActiv;
+//	int etat_demarrage=0;
 	/* Infinite loop */
 	for (;;) {
-//			if (HAL_GPIO_ReadPin(uSD_Detect_GPIO_Port, uSD_Detect_Pin)
-//					== 1) {
-//				BSP_LCD_DrawBitmap(150, 80, Accueil_2_bmp); //Affichage écran d'accueil
-//				BSP_LCD_SetTextColor(LCD_COLOR_LIGHTRED);
-//				BSP_LCD_DisplayStringAt(0, 130, (uint8_t*) "Inserer carte SD.",
-//						CENTER_MODE);
-//			} else if (HAL_GPIO_ReadPin(uSD_Detect_GPIO_Port, uSD_Detect_Pin)
-//					== 0) {
-//				MessageActiv=200;
-//				xQueueSend(QueueActivationHandle, &MessageActiv, 0); //On active la tâche d'affichage des images
-//			}
-//		osDelay(2000);
+//		if (etat_demarrage==0){
+//			vTaskSuspend(task_Affich_PicHandle);
+//
+//	BSP_LCD_DrawBitmap(150, 80, Accueil_2_bmp); //Affichage écran d'accueil
+//			etat_demarrage=1;
+//			vTaskResume(task_Affich_PicHandle);
+//		}
+//		else{
+//			etat_demarrage=1;
+//		}
+//		osDelay(1000);
+		osDelay(100);
 	}
 	/* USER CODE END Demarrage */
 }

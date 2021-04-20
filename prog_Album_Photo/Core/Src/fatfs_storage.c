@@ -46,6 +46,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "fatfs_storage.h"
+#include "bsp_driver_sd.h"
 
 
 /** @addtogroup STM32756G_EVAL_FAT_FS
@@ -230,7 +231,7 @@ uint32_t Storage_CheckBitmapFile(const char* BmpName, uint32_t *FileLen)
   * @param  None
   * @retval The number of the found files
   */
-uint32_t Storage_GetDirectoryBitmapFiles (const char* DirName, char* Files[])
+uint32_t Storage_GetDirectoryBitmapFiles (const TCHAR* DirName, char* Files[])
 {
   FRESULT res;
   uint32_t index = 0;
@@ -242,7 +243,7 @@ uint32_t Storage_GetDirectoryBitmapFiles (const char* DirName, char* Files[])
   }
 
   /* Start to search for wave files */
-  res = f_findfirst(&dir, &fno, DirName, "*.bmp");
+  res = f_findfirst(&dir, &fno, DirName, (const TCHAR*)"*.bmp");
 
   /* Repeat while an item is found */
   while (fno.fname[0])
