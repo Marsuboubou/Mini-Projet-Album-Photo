@@ -22,13 +22,13 @@
    as FreeRTOS is enabled. */
 
 /* USER CODE BEGIN firstSection */
+#include "cmsis_os.h"
 /* can be used to modify / undefine following code or add new definitions */
 /* USER CODE END firstSection*/
 
 /* Includes ------------------------------------------------------------------*/
 #include "ff_gen_drv.h"
 #include "sd_diskio.h"
-#include "cmsis_os.h"
 
 #include <string.h>
 #include <stdio.h>
