@@ -10,4 +10,6 @@ On trouve sur ce dépôt :
 * Un fichier README.md qui présente de manière très succinte le but du projet et le cahier des charges établi.
 
 ## Informations sur le projet
-Le but de ce projet était de créer un code pour le STM32F7 qui permette de lire des photos sur une carte SD pour les afficher sur l'écran LCD en mode diaporama automatique fonctionnant avec FreeRTOS.
+Le but de ce projet était de créer un code pour le STM32F7 qui permette de lire des photos sur une carte SD pour les afficher sur l'écran LCD en mode diaporama automatique fonctionnant avec FreeRTOS. Modifications Test
+
+### Pourquoi être si corrompu ?
