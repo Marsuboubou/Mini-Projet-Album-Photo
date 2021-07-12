@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://Marsuboubou.github.io/documentation/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Documentation Album Photo - SiteWebProjetAlbumPhotoSTM32F7</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Documentation Album Photo";
+    var mkdocs_page_input_path = "documentation.md";
+    var mkdocs_page_url = "/documentation/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SiteWebProjetAlbumPhotoSTM32F7</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Documentation Album Photo</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#le-fonctionnement">Le fonctionnement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#le-diagramme-dinteraction">Le diagramme d'interaction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lutilisation-de-la-carte-sd-et-de-freertos">L'utilisation de la carte SD et de FreeRTOS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#affichage-dune-image">Affichage d'une image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transitions">Transitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#difficultes">Difficultés</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../presentation/">Présentation SDMMC</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SiteWebProjetAlbumPhotoSTM32F7</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Documentation Album Photo</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="documentation">Documentation</h1>
+<p>Cette partie sert à éclairer le code du projet sur l'album photo. </p>
+<h2 id="le-fonctionnement">Le fonctionnement</h2>
+<p>Ce programme permet d'afficher des images se trouvant au format .BMP (<em>Bitmap</em>) qui sont dans un dossier <strong>Media</strong> dans le répertoire racine d'une carte SD. Des images se trouvent sur le dépôt GitHub ici : <a href="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/tree/main/Media_test">Media</a>.</p>
+<blockquote>
+<p>Le code proposé est largement inspiré de celui du projet <em>LTDC_PicturesFromSDCard</em> proposé par STM.</p>
+<p><strong>ATTENTION</strong> Les images ne doivent pas dépaser une taille de 480x272. Cependant, le programme accepte les images plus petites.</p>
+</blockquote>
+<hr />
+<h2 id="le-diagramme-dinteraction">Le diagramme d'interaction</h2>
+<p>Vous trouverez ci-dessous le diagramme d'interaction entre les différentes tâches du projet.</p>
+<p><img alt="Interaction_taches" src="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/blob/main/Images/diag_inter_album_photo.png?raw=true" /></p>
+<blockquote>
+<p>Il se trouve que la tâche démarrage n'apparaît pas car je n'ai pas réussi à la faire fonctionner. Elle n'entre alors plus en jeu dans le fonctionnement du programme.</p>
+</blockquote>
+<hr />
+<h2 id="lutilisation-de-la-carte-sd-et-de-freertos">L'utilisation de la carte SD et de FreeRTOS</h2>
+<h3 id="affichage-dune-image">Affichage d'une image</h3>
+<p>L'affichage des images se fait en utilisant les 2 calques (<em>layers</em>) de l'écran en alternance. 
+<img alt="affichage_code" src="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/blob/main/Images/affich_image.png?raw=true" />
+Le code sélectionne l'image via le compteur qui est défini dans la liste des images disponibles sur la carte SD. Ensuite, il vient stocker l'image dans un buffer avant de l'afficher sur un des calques (<em>BSP_LCD_DrawBitmap(...)</em>).</p>
+<h3 id="transitions">Transitions</h3>
+<p>Les transitions sont réalisées lors du changement d'image et il s'agit de fondus au noir. L'image actuelle s'assombrit jusqu'à ce que l'écran affiche du noir, puis l'image suivante s'éclaircit jusqu'à appararaître. Ce type de fondu est choisi car il permet de ne stocker dans le <em>buffer</em> mémoire de la carte STM32 qu'une image à la fois. Les transitions s'effectue en jouant aussi sur les deux calques (ici le calque 0).</p>
+<p><img alt="transition1" src="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/blob/main/Images/transition1.png?raw=true" /></p>
+<p><img alt="transition2" src="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/blob/main/Images/transition2.png?raw=true" /></p>
+<p>Pour forcer la transition d'une image, on utilise une messagerie qui vient modifier la valeur sur compteur en fonction de là où l'utilisateur a appuyé sur l'écran.</p>
+<p><img alt="IHM" src="https://github.com/Marsuboubou/Mini-Projet-Album-Photo/blob/main/Images/modif_counter.png?raw=true" /></p>
+<h3 id="difficultes">Difficultés</h3>
+<p>Il a été difficile de mettre en place l'utilisation de FreeRTOS en même temps que l'utilisation de la carte SD. Cependant, une fois ce blocage dépassé (grâce à l'intervention (divine ?) de M. Juton), il ne restait plus qu'à faire la transposition des bibliothèques proposées par STM pour la lecture de fichiers bitmap. Cependant, il fallait faire bien attention à n'importer que les bibliothèques nécessaires et à commenter les lignes inutiles et qui faisaient doublon avec d'autres bibliothèques déjà utilisées.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../presentation/" class="btn btn-neutral float-right" title="Présentation SDMMC">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Accueil"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../presentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
