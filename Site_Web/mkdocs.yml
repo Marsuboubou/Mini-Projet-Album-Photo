@@ -1,6 +1,8 @@
 site_name: SiteWebProjetAlbumPhotoSTM32F7
 nav: 
-  - Home: index.md
+  - Accueil: index.md
+  - Documentation Album Photo: documentation.md
+  - Présentation SDMMC: presentation.md
 theme: readthedocs
 site_url: https://Marsuboubou.github.io
 site_dir: public
