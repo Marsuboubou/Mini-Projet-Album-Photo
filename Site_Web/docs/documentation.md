@@ -4,14 +4,17 @@ Cette partie sert à documenter le code du projet sur l'album photo.
 
 ## Le fonctionnement
 
-Ce programme permet d'afficher des images se trouvant au format .BMP (*Bitmap*) qui sont dans un dossier **Media** dans le répertoire racine d'une carte SD.
+Ce programme permet d'afficher des images se trouvant au format .BMP (*Bitmap*) qui sont dans un dossier **Media** dans le répertoire racine d'une carte SD. Des images se trouvent sur le dépôt GitHub ici : [Media](https://github.com/Marsuboubou/Mini-Projet-Album-Photo/tree/main/Media_test).
 > Le code proposé est largement inspiré de celui du projet *LTDC_PicturesFromSDCard* proposé par STM.
 
 > **ATTENTION** Les images ne doivent pas dépaser une taille de 480x272. Cependant, le programme accepte les images plus petites.
 
 ---
 ## Le diagramme d'interaction
-Vous trouverez ci-dessous le diagramme d'interaction entre les différentes tâches du projet. 
+Vous trouverez ci-dessous le diagramme d'interaction entre les différentes tâches du projet.
+
+
+
 > Il se trouve que la tâche démarrage n'apparaît pas car je n'ai pas réussi à la faire fonctionner. Elle n'entre alors plus en jeu dans le fonctionnement du programme.
 
 ---
@@ -19,7 +22,7 @@ Vous trouverez ci-dessous le diagramme d'interaction entre les différentes tâc
 
 ### Affichage d'une image
 
-
+L'affichage des images se fait en utilisant les 2 calques (*layers*) de l'écran en alternance.
 
 ### Transitions
 
