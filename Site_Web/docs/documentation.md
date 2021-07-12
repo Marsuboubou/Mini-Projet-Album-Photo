@@ -2,6 +2,10 @@
 
 Cette partie sert à éclairer le code du projet sur l'album photo. 
 
+## L'objectif
+
+L'objectif de ce projet est d'avoir une visionneuse de photographie automatique sur notre carte STM32 lisant des photos à partir d'une carte SD, le tout fonctionnant avec FreeRTOS.
+
 ## Le fonctionnement
 
 Ce programme permet d'afficher des images se trouvant au format .BMP (*Bitmap*) qui sont dans un dossier **Media** dans le répertoire racine d'une carte SD. Des images se trouvent sur le dépôt GitHub ici : [Media](https://github.com/Marsuboubou/Mini-Projet-Album-Photo/tree/main/Media_test).
